@@ -1,563 +1,118 @@
+<!---A linha abaixo define o tipo de documento, qual seja, html-->
 <!DOCTYPE html>
-<html>
 
+<!--A linha abaixo inicia o bloco de códigos em html, também define o atributo "lang", que é a linguagem do documento, para br(Barsil)-->
+<html lang="br">
+
+<!--A linha abaixo inicia o bloco de códigos que serão carregados no cabeçalho da página, ou seja, serão carregados ANTES dos elementos-->
 <head>
+
+    <!--- A linha abaixo define a variável de ambiente/atributo "charset" (tipo de caracter) para "UTF-8" (padrão universal de caracteres)-->
     <meta charset="UTF-8">
+
+    <!--A linha abaixo define a variável de ambiente/atributo "name" ("nome"), da variável/atributo do sistema "viewport", a qual receberá os valores definidos no próximo atributo "content", o qual receberá o conteúdo para uso da variável/atributo "viewport", neste caso declarando a variável de sistema da seguinte forma: viewport="width=device-width, initial-scale=1.0"--->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Props.Key</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+
+    <!----A linha abaixo define o título da página, que aparecerá no topo da janela do navegador-->
+    <title>Criando Components em React</title>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel= "stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <!---A linha abaixo carrega localmente os arquivos de configuraçaõ de estilos bootstrap.min.css, o qual contém estilos da página e dos elementos que a compôem -->
     <link href="./bootstrap.min.css" rel="stylesheet">
+
+    <!--A linha abaixo carrega localmente o ícone da página que será exibido ao lado do título da pégina no navegador-->
     <link rel="shortcut icon" href="./favicon.ico">
-    <link href="./App.css" rel="stylesheet">
+    <!--A linha abaixo encerra o bloco de códigos do cabeçalho-->
 </head>
 
-<body>
 
-    <div id="mydiv"></div>
+<!--A linha abaixo inicia o bloco de códigos de tag <body>( corpo da página, que é igual ao objeto "document" invocado no javascript)-->
+    <body>
 
+        <!--A linha abaixo é a div necessária para funcionar corretamente o react-->
+     <div id="mydiv"></div>
+
+     <!--AS LINHAS ABAIXO SÃO NECESSÁRIAS PARA O CORRETO FUNCIONAMENTO DO REACT-->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
-    <script src="./bootstrap.bundle.min.js"></script>
 
+    <!--A linha abixo carrega a biblioteca bootstrap bootstrap.bundle.min.js para funcionar corretamente o bootstrap-->
+    <script src="./bootstrap.bundle.min.js"></script>
+    
     <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script> -->
+    <!--A linha abaixo carrega a biblioteca de desenvolvimento do rect react.development.js para funcionar corretamente o react-->
     <script src="./react.development.js"></script>
 
     <!-- <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script> -->
+    <!--A linha abaixo carrega a biblioteca popper popper.js para uso de elementos como menus, tooltips e popovers no react-->
     <script src="./popper.js"></script>
 
     <!-- <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> -->
+    <!--A linha abaixo carrega a biblioteca de desenvolvimento react-dom react-dom.development.js para uso de elementos virtuais no react-->
     <script src="./react-dom.development.js"></script>
 
     <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>     -->
+    <!--A linha abaixo carrega a biblioteca babel babel.js para transpilar, via JavaScript, todo código react-->
     <script src="./babel.min.js"></script>
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.22.2/react-router-dom.production.min.js" integrity="sha512-82Gx5QtMrxGdjQk0W8k1+yVQL3mhQUMQJkBWfCp0IuGqyyYtxA1Sd4VfhdbZIPaEX2MEOSvy7Hb17w7zYRNfJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!--A linha abaixo carrega a biblioteca de produção do componente react-router-dom, que serve para criar roteadores(caminhos) para o react-->
     <script src="./react-router-dom.production.min.js"></script>
 
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+    <!--A linha abaixo carrega a biblioteca de produção do componente jquery jquery-3.7.1.min.js, que serve para utilizar o "ajax" que conecta formulário com banco de dados no react -->
     <script src="./jquery-3.7.1.min.js"></script>
 
+    <!-- A linha abaixo inicia o bloco de códigos react, cujo atributo "type" é definido para "text/babel", que é o transpilador de código react-->
     <script type="text/babel">
-        const txtNome = React.createRef();
-        const txtSobrenome = React.createRef();
-        const txtDiaNascimento = React.createRef();
-        const txtMesNascimento = React.createRef();
-        const txtAnoNascimento = React.createRef();
-        const txtEmail = React.createRef();
-        const txtWhatsapp = React.createRef();
-        const txtEndereco = React.createRef();
-        const txtNumeroEndereco = React.createRef();
-        const txtBairro = React.createRef();
-        const txtCEP = React.createRef();
-        const txtCidade = React.createRef();
-        const txtEstado = React.createRef();
-        const txtCPF = React.createRef();
-        const txtRG = React.createRef();
-        const txtNacionalidade = React.createRef();
-        const txtProfissao = React.createRef();
-        const txtEstadoCivil = React.createRef();
-        const txtSenha = React.createRef();
 
-        const lblNome = React.createRef();
-        const lblSobrenome = React.createRef();
-        const lblDiaNascimento = React.createRef();
-        const lblMesNascimento = React.createRef();
-        const lblAnoNascimento = React.createRef();
-        const lblEmail = React.createRef();
-        const lblWhatsapp = React.createRef();
-        const lblEndereco = React.createRef();
-        const lblNumeroEndereco = React.createRef();
-        const lblBairro = React.createRef();
-        const lblCEP = React.createRef();
-        const lblCidade = React.createRef();
-        const lblEstado = React.createRef();
-        const lblCPF = React.createRef();
-        const lblRG = React.createRef();
-        const lblNacionalidade = React.createRef();
-        const lblProfissao = React.createRef();
-        const lblEstadoCivil = React.createRef();
-        const lblSenha = React.createRef();
+        /**
+         * A partir daqui são declarados todos os códigos em react
+         * 
+         * Para se criar um elemento é necessário que o mesmo tenha uma referência, ou seja, é necessário que se crie um atributo ref=nomeDaVariavelDeReferencia, que declarada através de uma variável somente leitura (const), da seguinte forma:
+        */
 
-        const btnCadastrar = React.createRef();
+        //A linha abaixo declara a variável "variavel", a qual receberá (=) o objeto "React", o qual invocará o método".createRef()", sem parâmetros (pois não há nada entre parênteses).
+        const varElemento = React.createRef();
 
-        const quebraLinha = React.createRef();
-
-        const validarCampos = () => {
-            console.clear();
-            let camposParaValidar = [
-                txtNome,
-                txtSobrenome,
-                txtDiaNascimento,
-                txtMesNascimento,
-                txtAnoNascimento,
-                txtEmail,
-                txtWhatsapp,
-                txtEndereco,
-                txtNumeroEndereco,
-                txtBairro,
-                txtCEP,
-                txtCidade,
-                txtEstado,
-                txtCPF,
-                txtRG,
-                txtNacionalidade,
-                txtProfissao,
-                txtEstadoCivil,
-                txtSenha
-            ];
-
-            let camposNaoPreenchidos = [];
-            for (let c = 0; c < camposParaValidar.length; c++) {
-                if (camposParaValidar[c].current.value == '') {
-                    camposNaoPreenchidos.push(camposParaValidar[c].current.id);
-                }
-            }
-
-            if (camposNaoPreenchidos.length > 0) {
-                console.log("Ops! Foram encontrados " + camposNaoPreenchidos.length + " campos não preenchidos, quais sejam abaixo: ");
-                camposNaoPreenchidos.forEach(function(entry) { console.log(entry) });
-                console.log("Favor preencher os campos acima para continuar com o cadastro.");
-            } else {
-                console.log("Parabéns! Todos os campos foram preenchidos.");
-            }
-        }
-
-        const txt_Nome = (
-            <input
-                type={"text"}
-                id={"txtNome"}
-                key={"txtNome"}
-                ref={txtNome}
-                className={"form-control"}
-            />
-        );
-        const txt_Sobrenome = (
-            <input
-                type={"text"}
-                id={"txtSobrenome"}
-                key={"txtSobrenome"}
-                ref={txtSobrenome}
-                className={"form-control"}
-            />
-        );
-        const txt_DiaNascimento = (
-            <input
-                type={"text"}
-                id={"txtDiaNascimento"}
-                key={"txtDiaNascimento"}
-                ref={txtDiaNascimento}
-                className={"form-control"}
-            />
-        );
-        const txt_MesNascimento = (
-            <input
-                type={"text"}
-                id={"txtMesNascimento"}
-                key={"txtMesNascimento"}
-                ref={txtMesNascimento}
-                className={"form-control"}
-            />
-        );
-        const txt_AnoNascimento = (
-            <input
-                type={"text"}
-                id={"txtAnoNascimento"}
-                key={"txtAnoNascimento"}
-                ref={txtAnoNascimento}
-                className={"form-control"}
-            />
-        );
-        const txt_Email = (
-            <input
-                type={"email"}
-                id={"txtEmail"}
-                key={"txtEmail"}
-                ref={txtEmail}
-                className={"form-control"}
-            />
-        );
-        const txt_Whatsapp = (
-            <input
-                type={"text"}
-                id={"txtWhatsapp"}
-                key={"txtWhatsapp"}
-                ref={txtWhatsapp}
-                className={"form-control"}
-            />
-        );
-        const txt_Endereco = (
-            <input
-                type={"text"}
-                id={"txtEndereco"}
-                key={"txtEndereco"}
-                ref={txtEndereco}
-                className={"form-control"}
-            />
-        );
-        const txt_NumeroEndereco = (
-            <input
-                type={"text"}
-                id={"txtNumeroEndereco"}
-                key={"txtNumeroEndereco"}
-                ref={txtNumeroEndereco}
-                className={"form-control"}
-            />
-        );
-        const txt_Bairro = (
-            <input
-                type={"text"}
-                id={"txtBairro"}
-                key={"txtBairro"}
-                ref={txtBairro}
-                className={"form-control"}
-            />
-        );
-        const txt_CEP = (
-            <input
-                type={"text"}
-                id={"txtCEP"}
-                key={"txtCEP"}
-                ref={txtCEP}
-                className={"form-control"}
-            />
-        );
-        const txt_Cidade = (
-            <input
-                type={"text"}
-                id={"txtCidade"}
-                key={"txtCidade"}
-                ref={txtCidade}
-                className={"form-control"}
-            />
-        );
-        const txt_Estado = (
-            <input
-                type={"text"}
-                id={"txtEstado"}
-                key={"txtEstado"}
-                ref={txtEstado}
-                className={"form-control"}
-            />
-        );
-        const txt_CPF = (
-            <input
-                type={"text"}
-                id={"txtCPF"}
-                key={"txtCPF"}
-                ref={txtCPF}
-                className={"form-control"}
-            />
-        );
-        const txt_RG = (
-            <input
-                type={"text"}
-                id={"txtRG"}
-                key={"txtRG"}
-                ref={txtRG}
-                className={"form-control"}
-            />
-        );
-        const txt_Nacionalidade = (
-            <input
-                type={"text"}
-                id={"txtNacionalidade"}
-                key={"txtNacionalidade"}
-                ref={txtNacionalidade}
-                className={"form-control"}
-            />
-        );
-        const txt_Profissao = (
-            <input
-                type={"text"}
-                id={"txtProfissao"}
-                key={"txtProfissao"}
-                ref={txtProfissao}
-                className={"form-control"}
-            />
-        );
-        const txt_EstadoCivil = (
-            <input
-                type={"text"}
-                id={"txtEstadoCivil"}
-                key={"txtEstadoCivil"}
-                ref={txtEstadoCivil}
-                className={"form-control"}
-            />
-        );
-        const txt_Senha = (
-            <input
-                type={"password"}
-                id={"txtSenha"}
-                key={"txtSenha"}
-                ref={txtSenha}
-                className={"form-control"}
-            />
-        );
-
-        const lbl_Nome = (
-            <label
-                id={"lblNome"}
-                key={"lblNome"}
-                ref={lblNome}
-                className={"input-group-text"}
-            >Nome</label>
-        );
-        const lbl_Sobrenome = (
-            <label
-                id={"lblSobrenome"}
-                key={"lblSobrenome"}
-                ref={lblSobrenome}
-                className={"input-group-text"}
-            >Sobrenome</label>
-        );
-        const lbl_DiaNascimento = (
-            <label
-                id={"lblDiaNascimento"}
-                key={"lblDiaNascimento"}
-                ref={lblDiaNascimento}
-                className={"input-group-text"}
-            >Dia Nascimento</label>
-        );
-        const lbl_MesNascimento = (
-            <label
-                id={"lblMesNascimento"}
-                key={"lblMesNascimento"}
-                ref={lblMesNascimento}
-                className={"input-group-text"}
-            >Mês Nascimento</label>
-        );
-        const lbl_AnoNascimento = (
-            <label
-                id={"lblAnoNascimento"}
-                key={"lblAnoNascimento"}
-                ref={lblAnoNascimento}
-                className={"input-group-text"}
-            >Ano Nascimento</label>
-        );
-        const lbl_Email = (
-            <label
-                id={"lblEmail"}
-                key={"lblEmail"}
-                ref={lblEmail}
-                className={"input-group-text"}
-            >Email</label>
-        );
-        const lbl_Whatsapp = (
-            <label
-                id={"lblWhatsapp"}
-                key={"lblWhatsapp"}
-                ref={lblWhatsapp}
-                className={"input-group-text"}
-            >Whatsapp</label>
-        );
-        const lbl_Endereco = (
-            <label
-                id={"lblEndereco"}
-                key={"lblEndereco"}
-                ref={lblEndereco}
-                className={"input-group-text"}
-            >Endereço</label>
-        );
-        const lbl_NumeroEndereco = (
-            <label
-                id={"lblNumeroEndereco"}
-                key={"lblNumeroEndereco"}
-                ref={lblNumeroEndereco}
-                className={"input-group-text"}
-            >Número</label>
-        );
-        const lbl_Bairro = (
-            <label
-                id={"lblBairro"}
-                key={"lblBairro"}
-                ref={lblBairro}
-                className={"input-group-text"}
-            >Bairro</label>
-        );
-        const lbl_CEP = (
-            <label
-                id={"lblCEP"}
-                key={"lblCEP"}
-                ref={lblCEP}
-                className={"input-group-text"}
-            >CEP</label>
-        );
-        const lbl_Cidade = (
-            <label
-                id={"lblCidade"}
-                key={"lblCidade"}
-                ref={lblCidade}
-                className={"input-group-text"}
-            >Cidade</label>
-        );
-        const lbl_Estado = (
-            <label
-                id={"lblEstado"}
-                key={"lblEstado"}
-                ref={lblEstado}
-                className={"input-group-text"}
-            >Estado</label>
-        );
-        const lbl_CPF = (
-            <label
-                id={"lblCPF"}
-                key={"lblCPF"}
-                ref={lblCPF}
-                className={"input-group-text"}
-            >CPF</label>
-        );
-        const lbl_RG = (
-            <label
-                id={"lblRG"}
-                key={"lblRG"}
-                ref={lblRG}
-                className={"input-group-text"}
-            >RG</label>
-        );
-        const lbl_Nacionalidade = (
-            <label
-                id={"lblNacionalidade"}
-                key={"lblNacionalidade"}
-                ref={lblNacionalidade}
-                className={"input-group-text"}
-            >Nacionalidade</label>
-        );
-        const lbl_Profissao = (
-            <label
-                id={"lblProfissao"}
-                key={"lblProfissao"}
-                ref={lblProfissao}
-                className={"input-group-text"}
-            >Profissão</label>
-        );
-        const lbl_EstadoCivil = (
-            <label
-                id={"lblEstadoCivil"}
-                key={"lblEstadoCivil"}
-                ref={lblEstadoCivil}
-                className={"input-group-text"}
-            >Estado Civil</label>
-        );
-        const lbl_Senha = (
-            <label
-                id={"lblSenha"}
-                key={"lblSenha"}
-                ref={lblSenha}
-                className={"input-group-text"}
-            >Senha</label>
-        );
-
-        const btn_Cadastrar = (
-            <button
-                id={"btnCadastrar"}
-                key={"btnCadastrar"}
-                ref={btnCadastrar}
-                onClick={validarCampos}
-                className={"btn btn-primary"}
-            >Cadastrar-se</button>
-        );
-
-        const quebra_Linha = (
-            <br
-                id={"quebraLinha"}
-                key={"quebraLinha"}
-                ref={quebraLinha}
-            />
-        );
-
-        const frmCadastrar = React.createRef();
-
-        function exibirQuebraLinha(keyNumber) {
-            return (
-                <br
-                    id={keyNumber}
-                    key={keyNumber}
-                    ref={quebraLinha}
-                />
-            );
-        }
-
-        function getNewInputGroup(spanLabel, inputObj) {
-            let idTemp = "div_input_group_Nome_" + Math.random();
-            return (
-                <div
-                    className={"input-group input-group-lg"}
-                    id={idTemp}
-                    key={idTemp}
+        //A linha abaixo declara a variável somente leitura var_Elemento, a qual receberá (=) todo código necessário para criar um elemento/componente, iniciando o bloco de códigos com um " abre parênteses" (
+         const var_Elemento = (
+            //A linha abaixo cria o elemento/tag em html "elemento"
+            <elemento
+            //a linha abaixo cria o atributo "id", o qual receberá (=) o valor, entre chaves {}, em string também, ou seja, entre aspas duplas "varElemento"
+            id={"varElemento"}
+           //a linha abaixo cria o atributo "key", o qual receberá (=) o valor, entre chaves {}, em string também, ou seja, entre aspas duplas "varElemento"
+            key={"varElemento"}
+            //a linha abaixo cria o atributo "ref", o qual receberá (=) o valor, entre chaves {varElemento}, da variável varElemento declarada anteriormente
+            ref={varElemento}
+            //A linha abaixo finaliza o bloco de códigos do elemento/componente<elemento>
                 >
-                    {spanLabel}
-                    {inputObj}
-                </div>
-            );
-        }
+           //A linha abaixo declara o conteúdo dentro do elemento "elemento" 
+           Conteúdo em texto normal, em números, etc...
+           //A linha abaixo fecha o bloco do conteúdo do elemento
+           </elemento>
+           //A linha abaixo fecha o bloco de códigos da variável var_Elemento
+         );
 
-        const bootstrapInputGroup = (
-            <div
-                className={"input-group input-group-lg"}
-                id={"div_input_group_Nome"}
-                key={"div_input_group_Nome"}
-            >
-                <span
-                    className={"input-group-text"}
-                    id={"inputGroup-sizing-lg"}
-                    key={"inputGroup-sizing-lg"}
-                >Large</span>
-                <input
-                    type={"text"}
-className={"form-control"}
-id={"inputGroup"}
-key={"inputGroup"}
-/>
-</div>
-);
+         //A linha abaixo declara a variável ObjetoElemento, a qual receberá (=) como "valor" uma " air function" () = => { /**bloco de códigos */}, a qual retornará (return) a variável "var_Elemento" declarada anteriormente, e inicia o bloco de códigos com "abre chaves{
+         const ObjetoElemento = () => {
+            //retorna (return) a variável "var_Elemento" declarada anteriormente
+            return var_Elemento;
+            //A linha abaixo encerra o bloco de códigos do ObjetoElemento com a chave invertida}
+         }
 
-const formulario = [
-getNewInputGroup(lbl_Nome, txt_Nome),
-getNewInputGroup(lbl_Sobrenome, txt_Sobrenome),
-getNewInputGroup(lbl_DiaNascimento, txt_DiaNascimento),
-getNewInputGroup(lbl_MesNascimento, txt_MesNascimento),
-getNewInputGroup(lbl_AnoNascimento, txt_AnoNascimento),
-getNewInputGroup(lbl_Email, txt_Email),
-getNewInputGroup(lbl_Whatsapp, txt_Whatsapp),
-getNewInputGroup(lbl_Endereco, txt_Endereco),
-getNewInputGroup(lbl_NumeroEndereco, txt_NumeroEndereco),
-getNewInputGroup(lbl_Bairro, txt_Bairro),
-getNewInputGroup(lbl_CEP, txt_CEP),
-getNewInputGroup(lbl_Cidade, txt_Cidade),
-getNewInputGroup(lbl_Estado, txt_Estado),
-getNewInputGroup(lbl_CPF, txt_CPF),
-getNewInputGroup(lbl_RG, txt_RG),
-getNewInputGroup(lbl_Nacionalidade, txt_Nacionalidade),
-getNewInputGroup(lbl_Profissao, txt_Profissao),
-getNewInputGroup(lbl_EstadoCivil, txt_EstadoCivil),
-getNewInputGroup(lbl_Senha, txt_Senha),
-btn_Cadastrar
-];
+         //A linha abaixo declara a variável "container", a qual receberá (=) o valor em forma do objeto "document", o qual invocará o método ".getElementById", cujo parâmetros  enviado é o nome do elemento em string (aspas simples) dentro dos parênteses('mydiv');
+         const container = document.getElementById('mydiv');
 
-const frm_Cadastrar = (
-<form
-// method={"post"}
-// action={"./cadastrar.php"}
-id={"frmCadastrar"}
-key={"frmCadastrar"}
-ref={frmCadastrar}
-onSubmit={validarCampos}
-className={"form row"}
->
-{formulario}
-</form>
-);
+         //A linha abaixo declara a variável somente leitura (const) "root", a qual receberá(=) o valor em forma do objeto "ReactDOM", o qual invocará o método ".createRoot", cujo parâmetroenviado, entre parênteses, é a variável(container) declarada anteriomente 
+         const root = ReactDOM.createROOT(container);
 
-const FrmCadastro = () => {
-return formulario;
-}
+         //A linha abaixo, através do objeto/variável "root" declarado anteriormente, invoca o método ".render", o qual receberá o parâmetro <ObjetoElemento />, declarado anteriormente, entre tags </>
+        root.render(<ObjetoElemento />); //Reinderizar via variável (contém o objeto a ser reinderizado)
+        //A linha abaixo encerra o bloco de códigos da tag <script type="text/babel">
+            </script>
 
-const Frm = () => {
-return frm_Cadastrar;
-}
+            <!--A linha abaixo encerra o bloco de códigos da tag <body> -->
+                </body>
 
-const container = document.getElementById('mydiv');
-const root = ReactDOM.createRoot(container);
-root.render(<Frm />); // renderizar via variável (contém o objeto a ser renderizado)
-</script>
-
-</body>
+                <!--A linha abaixo encerra o bloco de códigos da tag <html> -->
+</html>
